@@ -15,6 +15,7 @@ import { app, BrowserWindow, shell } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
+import {setup_ipcmain} from "./ipcmain";
 
 export default class AppUpdater {
   constructor() {
@@ -52,6 +53,8 @@ const installExtensions = async () => {
 };
 
 const createWindow = async () => {
+  console.log("===========    create window")
+  setup_ipcmain()
   if (
     process.env.NODE_ENV === 'development' ||
     process.env.DEBUG_PROD === 'true'

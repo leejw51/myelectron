@@ -2,9 +2,21 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import icon from '../assets/icon.svg';
 
+import {test_ipcrender} from "./ipcrender";
+
+function shoot() {
+  alert("Great Shot!");
+  test_ipcrender()
+}
+
+
+
 const Hello = () => {
   return (
     <div>
+
+<button onClick={shoot}>Take the shot!</button>
+
       <div className="Hello">
         <img width="200px" alt="icon" src={icon} />
       </div>
